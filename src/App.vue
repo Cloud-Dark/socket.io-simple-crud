@@ -32,102 +32,10 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="card mt-3">
-			<div class="card-header">Vue Axios POST</div>
-			<div class="card-body">
-				<div class="form-group">
-					<input
-						type="text"
-						class="form-control"
-						ref="post_title"
-						placeholder="Judul"
-					/>
-				</div>
-				<div class="form-group">
-					<input
-						type="text"
-						class="form-control"
-						ref="post_description"
-						placeholder="Deskripsi"
-					/>
-				</div>
-				<div class="form-group">
-					<div class="example ex1">
-						<h4>Select Status</h4>
-						<select v-model="selectedValue" ref="mySelect">
-							<option value='true'>Selesai</option>
-							<option value=''>Belum selesai</option>
-						</select>
-					</div>
-				</div>
-				<button class="btn btn-sm btn-primary" @click="postData">
-					Post Data
-				</button>
-				<button class="btn btn-sm btn-warning ml-2" @click="clearPostOutput">
-					Clear
-				</button>
-
-				<div v-if="postResult" class="alert alert-secondary mt-2" role="alert">
-					<pre>{{ postResult }}</pre>
-				</div>
-			</div>
-		</div>
-
-		<div class="card mt-3">
-			<div class="card-header">Vue Axios PUT</div>
-			<div class="card-body">
-				<div class="form-group">
-					<input
-						type="text"
-						class="form-control"
-						ref="put_id"
-						placeholder="Id"
-					/>
-				</div>
-				<div class="form-group">
-					<input
-						type="text"
-						class="form-control"
-						ref="put_title"
-						placeholder="Title"
-					/>
-				</div>
-				<div class="form-group">
-					<input
-						type="text"
-						class="form-control"
-						ref="put_description"
-						placeholder="Description"
-					/>
-				</div>
-        <div class="form-group">
-					<div class="example ex1">
-						<h4>Select Status</h4>
-						<select v-model="selectedValue" ref="mySelect">
-							<option value='true'>Selesai</option>
-							<option value=''>Belum selesai</option>
-						</select>
-					</div>
-				</div>
-				<button class="btn btn-sm btn-primary" @click="putData">
-					Update Data
-				</button>
-				<button class="btn btn-sm btn-warning ml-2" @click="clearPutOutput">
-					Clear
-				</button>
-
-				<div v-if="putResult" class="alert alert-secondary mt-2" role="alert">
-					<pre>{{ putResult }}</pre>
-				</div>
-			</div>
-		</div>
-
 		<div class="card mt-3">
 			<div class="card-header">Vue Axios DELETE</div>
 			<div class="card-body">
 				<div class="input-group input-group-sm">
-
 					<input
 						type="text"
 						ref="delete_id"
@@ -154,6 +62,101 @@
 					role="alert"
 				>
 					<pre>{{ deleteResult }}</pre>
+				</div>
+			</div>
+		</div>
+		<div class="row d-flex justify-content-center">
+			<div class="card mt-3">
+				<div class="card-header">Vue Axios POST</div>
+				<div class="card-body">
+					<div class="form-group">
+						<input
+							type="text"
+							class="form-control"
+							ref="post_title"
+							placeholder="Judul"
+						/>
+					</div>
+					<div class="form-group">
+						<input
+							type="text"
+							class="form-control"
+							ref="post_description"
+							placeholder="Deskripsi"
+						/>
+					</div>
+					<div class="form-group">
+						<div class="example ex1">
+							<h4>Select Status</h4>
+							<select v-model="selectedValue" ref="mySelect">
+								<option value="true">Selesai</option>
+								<option value="">Belum selesai</option>
+							</select>
+						</div>
+					</div>
+					<button class="btn btn-sm btn-primary" @click="postData">
+						Post Data
+					</button>
+					<button class="btn btn-sm btn-warning ml-2" @click="clearPostOutput">
+						Clear
+					</button>
+
+					<div
+						v-if="postResult"
+						class="alert alert-secondary mt-2"
+						role="alert"
+					>
+						<pre>{{ postResult }}</pre>
+					</div>
+				</div>
+			</div>
+
+			<div class="card mt-3">
+				<div class="card-header">Vue Axios PUT</div>
+				<div class="card-body">
+					<div class="form-group">
+						<input
+							type="text"
+							class="form-control"
+							ref="put_id"
+							placeholder="Id"
+						/>
+					</div>
+					<div class="form-group">
+						<input
+							type="text"
+							class="form-control"
+							ref="put_title"
+							placeholder="Title"
+						/>
+					</div>
+					<div class="form-group">
+						<input
+							type="text"
+							class="form-control"
+							ref="put_description"
+							placeholder="Description"
+						/>
+					</div>
+					<div class="form-group">
+						<div class="example ex1">
+							<h4>Select Status</h4>
+							<select v-model="selectedValue" ref="mySelect">
+								<option value="true">Selesai</option>
+								<option value="">Belum selesai</option>
+							</select>
+						</div>
+					</div>
+					<button class="btn btn-sm btn-primary" @click="putData">
+						Update Data
+					</button>
+					<button class="btn btn-sm btn-warning ml-2" @click="clearPutOutput">
+						Clear
+					</button>
+
+					<div v-if="putResult" class="alert alert-secondary mt-2" role="alert">
+						<pre>{{ putResult }}</pre>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -219,7 +222,7 @@ export default {
 				selesai: Boolean(this.$refs.mySelect.value),
 				//get value from option box?
 			};
-      console.log(postData);
+			console.log(postData);
 			try {
 				const res = await http.post("/tugas", postData, {});
 				const result = {
@@ -237,9 +240,9 @@ export default {
 			const id = put_id.value;
 			if (id) {
 				const putData = {
-        judul: put_title.value,
-				deskripsi: put_description.value,
-				selesai: Boolean(this.$refs.mySelect.value),
+					judul: put_title.value,
+					deskripsi: put_description.value,
+					selesai: Boolean(this.$refs.mySelect.value),
 				};
 				try {
 					const res = await http.patch(`/tugas/${id}`, putData, {
@@ -290,8 +293,7 @@ export default {
 };
 </script>
 <style>
-#app {
-	max-width: 600px;
-	margin: auto;
+.container {
+	max-width: 100%;
 }
 </style>
