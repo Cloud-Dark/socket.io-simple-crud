@@ -1,0 +1,19 @@
+{
+  "name": "socket.io-simple-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cloud-Dark/socket.io-simple-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cloud-Dark/socket.io-simple-crud/issues"
+  },
+  "homepage": "https://github.com/Cloud-Dark/socket.io-simple-crud#readme"
+}
